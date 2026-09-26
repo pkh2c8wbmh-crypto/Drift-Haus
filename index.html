@@ -55,10 +55,14 @@
     .work-tabs { display:flex; gap:11px; margin:52px 0 35px; }
     .work-tab { appearance:none; border:1px solid rgba(6,45,65,.45); background:transparent; color:var(--ink); cursor:pointer; font:600 11px Arial,Helvetica,sans-serif; letter-spacing:.18em; padding:13px 19px; text-transform:uppercase; }
     .work-tab[aria-selected="true"] { background:var(--ink); color:var(--paper); }
-    .work-filters { display:flex; flex-wrap:wrap; gap:9px; margin:-13px 0 35px; }
-    .work-filters[hidden] { display:none; }
-    .work-filter { appearance:none; border:0; border-bottom:1px solid transparent; background:transparent; color:var(--teal); cursor:pointer; font:600 10px Arial,Helvetica,sans-serif; letter-spacing:.15em; padding:8px 3px; text-transform:uppercase; }
-    .work-filter[aria-pressed="true"] { border-color:var(--ink); color:var(--ink); }
+    .work-back { appearance:none; border:0; background:transparent; color:var(--teal); cursor:pointer; font:600 10px Arial,Helvetica,sans-serif; letter-spacing:.16em; margin:-12px 0 32px; padding:8px 0; text-transform:uppercase; }
+    .work-back:hover { color:var(--ink); }
+    .work-category-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .work-category { position:relative; min-height:430px; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; padding:0; text-align:left; }
+    .work-category img { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
+    .work-category:hover img { transform:scale(1.04); }
+    .work-category::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(3,31,48,.88),transparent 65%); }
+    .work-category-label { position:absolute; z-index:1; left:23px; right:23px; bottom:22px; font:400 clamp(30px,3vw,48px)/1.05 Georgia,'Times New Roman',serif; letter-spacing:-.03em; }
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .work-item { appearance:none; position:relative; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; min-height:350px; padding:0; text-align:left; }
     .work-item img, .work-item video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
@@ -117,7 +121,8 @@
       .intro-copy { max-width:560px; }
       .services { padding:80px 0 95px; }
       .work { padding:80px 0 90px; }
-      .work-grid { grid-template-columns:repeat(2,1fr); }
+      .work-category-grid, .work-grid { grid-template-columns:repeat(2,1fr); }
+      .work-category { min-height:400px; }
       .work-item:nth-child(1), .work-item:nth-child(5) { grid-row:span 1; min-height:400px; }
       .service-list { margin-top:55px; }
       .service { grid-template-columns:42px 1fr; }
@@ -142,8 +147,9 @@
       .service { grid-template-columns:30px 1fr; gap:13px; padding:27px 0 30px; }
       .service h2 { font-size:39px; }
       .work-tabs { margin:35px 0 20px; }
-      .work-grid { grid-template-columns:1fr; gap:12px; }
-      .work-item, .work-item:nth-child(1), .work-item:nth-child(5) { min-height:360px; }
+      .work-back { margin-bottom:20px; }
+      .work-category-grid, .work-grid { grid-template-columns:1fr; gap:12px; }
+      .work-category, .work-item, .work-item:nth-child(1), .work-item:nth-child(5) { min-height:360px; }
       .manifesto-art { min-height:350px; }
       .manifesto-text h2 { font-size:45px; }
       .contact h2 { font-size:clamp(55px,15vw,80px); }
@@ -188,8 +194,9 @@
         <div class="section-top"><p class="eyebrow">Selected work / 03</p><p>Original photography and motion from Drift Haus Media.</p></div>
         <h2 id="work-heading" style="position:absolute;left:-9999px">Our Work</h2>
         <div class="work-tabs" role="tablist" aria-label="Portfolio media"><button class="work-tab" type="button" role="tab" aria-selected="true" data-work-tab="photos">Photos</button><button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="videos">Videos</button></div>
-        <div class="work-filters" id="work-filters" aria-label="Photo categories"><button class="work-filter" type="button" aria-pressed="true" data-work-filter="All">All</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Style">Style</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Products">Products</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Performance">Performance</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Luxury Living">Luxury Living</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="People">People</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Places">Places</button></div>
-        <div class="work-grid" id="work-grid" aria-live="polite"></div>
+        <button class="work-back" id="work-back" type="button" hidden>← All photo categories</button>
+        <div class="work-category-grid" id="work-category-grid" aria-live="polite"></div>
+        <div class="work-grid" id="work-grid" aria-live="polite" hidden></div>
       </div>
     </section>
     <dialog class="work-dialog" id="work-dialog"><div class="work-dialog-content"><button class="work-close" type="button" aria-label="Close enlarged work">×</button><button class="work-nav work-prev" type="button" aria-label="Previous work">‹</button><div id="work-dialog-media"></div><button class="work-nav work-next" type="button" aria-label="Next work">›</button><p id="work-dialog-caption"></p></div></dialog>
@@ -631,10 +638,12 @@
       ]
     };
     const grid = document.getElementById('work-grid');
-    const filters = document.getElementById('work-filters');
+    const categoryGrid = document.getElementById('work-category-grid');
+    const backButton = document.getElementById('work-back');
     const dialog = document.getElementById('work-dialog');
     const dialogMedia = document.getElementById('work-dialog-media');
     const dialogCaption = document.getElementById('work-dialog-caption');
+    const categories = ['Style', 'Products', 'Performance', 'Luxury Living', 'People', 'Places'];
     const projectTitles = { Style: 'Styled Presence', Products: 'Product Desire', Performance: 'In Motion', 'Luxury Living': 'Coastal Escape', People: 'Founder Frame', Places: 'Open Roads' };
 
     work.photos.forEach((item) => {
@@ -644,24 +653,41 @@
     });
 
     let selectedWorkType = 'photos';
-    let selectedPhotoFilter = 'All';
+    let selectedPhotoCategory = null;
     let activeWorkType = 'photos';
     let activeWorkIndex = 0;
 
     function visibleWork(type) {
-      return type === 'photos' && selectedPhotoFilter !== 'All'
-        ? work.photos.filter((item) => item.category === selectedPhotoFilter)
+      return type === 'photos' && selectedPhotoCategory
+        ? work.photos.filter((item) => item.category === selectedPhotoCategory)
         : work[type];
+    }
+
+    function renderCategories() {
+      categoryGrid.innerHTML = categories.map((category) => {
+        const cover = work.photos.find((item) => item.category === category);
+        return `<button class="work-category" type="button" data-category="${category}" aria-label="View ${category} photos"><img src="${cover.src}" alt="" loading="lazy"><span class="work-category-label">${category}</span></button>`;
+      }).join('');
+      categoryGrid.hidden = false;
+      grid.hidden = true;
+      backButton.hidden = true;
     }
 
     function renderWork(type = selectedWorkType) {
       selectedWorkType = type;
+      if (type === 'photos' && !selectedPhotoCategory) {
+        renderCategories();
+        return;
+      }
       const items = visibleWork(type);
       grid.innerHTML = items.map((item, index) => {
         const itemName = item.title || item.label;
         const meta = `<span class="work-meta"><span>${item.label}</span>${item.title ? `<strong>${item.title}</strong>` : ''}</span>`;
         return `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${itemName}">${type === 'photos' ? `<img src="${item.src}" alt="${itemName}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-play">▶</span>`}${meta}</button>`;
       }).join('');
+      categoryGrid.hidden = true;
+      grid.hidden = false;
+      backButton.hidden = type !== 'photos';
     }
 
     function showActiveWork() {
@@ -686,15 +712,21 @@
 
     document.querySelectorAll('[data-work-tab]').forEach((tab) => tab.addEventListener('click', () => {
       document.querySelectorAll('[data-work-tab]').forEach((button) => button.setAttribute('aria-selected', button === tab));
-      filters.hidden = tab.dataset.workTab !== 'photos';
-      renderWork(tab.dataset.workTab);
+      selectedWorkType = tab.dataset.workTab;
+      renderWork();
     }));
 
-    document.querySelectorAll('[data-work-filter]').forEach((filter) => filter.addEventListener('click', () => {
-      selectedPhotoFilter = filter.dataset.workFilter;
-      document.querySelectorAll('[data-work-filter]').forEach((button) => button.setAttribute('aria-pressed', button === filter));
+    categoryGrid.addEventListener('click', (event) => {
+      const cover = event.target.closest('[data-category]');
+      if (!cover) return;
+      selectedPhotoCategory = cover.dataset.category;
       renderWork('photos');
-    }));
+    });
+
+    backButton.addEventListener('click', () => {
+      selectedPhotoCategory = null;
+      renderWork('photos');
+    });
 
     grid.addEventListener('click', (event) => {
       const item = event.target.closest('.work-item');

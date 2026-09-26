@@ -1,0 +1,11 @@
+services:
+  web:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command: node server.mjs
+    environment:
+      PORT: "3000"
+    ports:
+      - "3000:3000"

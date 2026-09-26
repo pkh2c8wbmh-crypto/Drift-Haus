@@ -59,8 +59,8 @@
     .work-back:hover { color:var(--ink); }
     .work-category-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .work-category { position:relative; min-height:430px; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; padding:0; text-align:left; }
-    .work-category img { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
-    .work-category:hover img { transform:scale(1.04); }
+    .work-category img, .work-category video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
+    .work-category:hover img, .work-category:hover video { transform:scale(1.04); }
     .work-category::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(3,31,48,.88),transparent 65%); }
     .work-category-label { position:absolute; z-index:1; left:23px; right:23px; bottom:22px; font:400 clamp(30px,3vw,48px)/1.05 Georgia,'Times New Roman',serif; letter-spacing:-.03em; }
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
@@ -654,6 +654,7 @@
 
     let selectedWorkType = 'photos';
     let selectedPhotoCategory = null;
+    let videoFolderOpen = false;
     let activeWorkType = 'photos';
     let activeWorkIndex = 0;
 
@@ -673,10 +674,22 @@
       backButton.hidden = true;
     }
 
+    function renderVideoFolder() {
+      const cover = work.videos[0];
+      categoryGrid.innerHTML = `<button class="work-category" type="button" data-video-folder aria-label="Open Videos folder"><video src="${cover.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-category-label">Videos</span></button>`;
+      categoryGrid.hidden = false;
+      grid.hidden = true;
+      backButton.hidden = true;
+    }
+
     function renderWork(type = selectedWorkType) {
       selectedWorkType = type;
       if (type === 'photos' && !selectedPhotoCategory) {
         renderCategories();
+        return;
+      }
+      if (type === 'videos' && !videoFolderOpen) {
+        renderVideoFolder();
         return;
       }
       const items = visibleWork(type);
@@ -687,7 +700,8 @@
       }).join('');
       categoryGrid.hidden = true;
       grid.hidden = false;
-      backButton.hidden = type !== 'photos';
+      backButton.hidden = false;
+      backButton.textContent = type === 'photos' ? '← All photo categories' : '← All video folders';
     }
 
     function showActiveWork() {
@@ -713,19 +727,28 @@
     document.querySelectorAll('[data-work-tab]').forEach((tab) => tab.addEventListener('click', () => {
       document.querySelectorAll('[data-work-tab]').forEach((button) => button.setAttribute('aria-selected', button === tab));
       selectedWorkType = tab.dataset.workTab;
+      if (selectedWorkType === 'photos') selectedPhotoCategory = null;
+      if (selectedWorkType === 'videos') videoFolderOpen = false;
       renderWork();
     }));
 
     categoryGrid.addEventListener('click', (event) => {
       const cover = event.target.closest('[data-category]');
-      if (!cover) return;
-      selectedPhotoCategory = cover.dataset.category;
-      renderWork('photos');
+      if (cover) {
+        selectedPhotoCategory = cover.dataset.category;
+        renderWork('photos');
+        return;
+      }
+      if (event.target.closest('[data-video-folder]')) {
+        videoFolderOpen = true;
+        renderWork('videos');
+      }
     });
 
     backButton.addEventListener('click', () => {
-      selectedPhotoCategory = null;
-      renderWork('photos');
+      if (selectedWorkType === 'photos') selectedPhotoCategory = null;
+      if (selectedWorkType === 'videos') videoFolderOpen = false;
+      renderWork();
     });
 
     grid.addEventListener('click', (event) => {

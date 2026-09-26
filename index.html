@@ -201,12 +201,416 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     const work = {
       photos: [
-        { title: 'Styled Presence', label: 'Fashion + Lifestyle', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/7728a4fb2_F4B7562A-1AB3-4428-AAF1-D9B6FBDFE9AF.PNG' },
-        { title: 'Product Desire', label: 'Premium Consumer Goods', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/f4df41eb7_IMG_9171.jpg' },
-        { title: 'In Motion', label: 'Wellness + Performance', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/8e4e9dd8e_IMG_5879.jpg' },
-        { title: 'Coastal Escape', label: 'Luxury Hospitality', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/b77b01289_IMG_4148.jpg' },
-        { title: 'Founder Frame', label: 'Personal Brand', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/386762c24_IMG_3767.jpg' },
-        { title: 'Open Roads', label: 'Travel + Automotive', src: 'https://media.base44.com/images/public/69e6716b4226804d637b2283/59c332616_IMG_3774.JPG' }
+        {
+                "title": "Products 01",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f4df41eb7_IMG_9171.jpg"
+        },
+        {
+                "title": "Products 02",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cd855beca_IMG_9815.jpg"
+        },
+        {
+                "title": "Products 03",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3fbef678c_IMG_9882.jpg"
+        },
+        {
+                "title": "Products 04",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/55db50542_IMG_3750.jpg"
+        },
+        {
+                "title": "Products 06",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/69138cb5a_IMG_4356.jpg"
+        },
+        {
+                "title": "Products 07",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f59c5daf6_IMG_4357.jpg"
+        },
+        {
+                "title": "Products 08",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/9c11c9482_IMG_4358.jpg"
+        },
+        {
+                "title": "Products 10",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/e7e095cbe_IMG_4360.png"
+        },
+        {
+                "title": "Products 11",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b18e36eb2_IMG_5592.JPG"
+        },
+        {
+                "title": "Products 12",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/13a2355e1_IMG_0542.jpg"
+        },
+        {
+                "title": "Products 13",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/5bce556d6_6C0A0272-E48A-4F9F-B06D-634A05825C3E.PNG"
+        },
+        {
+                "title": "Luxury Living 01",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/25066a07e_IMG_4083.jpg"
+        },
+        {
+                "title": "Luxury Living 02",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/5ed49a7b7_IMG_4113.jpg"
+        },
+        {
+                "title": "Luxury Living 03",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7d46e939c_IMG_4114.jpg"
+        },
+        {
+                "title": "Luxury Living 04",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3ae173263_IMG_4130.jpg"
+        },
+        {
+                "title": "Luxury Living 05",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1bffb5f3f_IMG_4147.jpg"
+        },
+        {
+                "title": "Luxury Living 06",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b77b01289_IMG_4148.jpg"
+        },
+        {
+                "title": "Luxury Living 07",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/9f7076cf9_IMG_4161.jpg"
+        },
+        {
+                "title": "Luxury Living 08",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7166d36be_IMG_4167.jpg"
+        },
+        {
+                "title": "Luxury Living 09",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3fa5c68d8_IMG_4173.jpg"
+        },
+        {
+                "title": "Luxury Living 11",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1fc73e045_IMG_4071.jpg"
+        },
+        {
+                "title": "Style 01",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7728a4fb2_F4B7562A-1AB3-4428-AAF1-D9B6FBDFE9AF.PNG"
+        },
+        {
+                "title": "Style 03",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/76222f5ec_BEA99DC6-794A-44AC-88F8-9AB377EACB88.PNG"
+        },
+        {
+                "title": "Style 07",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/657b6c37b_03CFE927-74C2-4CB2-909B-7FF1CD345BA0.PNG"
+        },
+        {
+                "title": "Style 08",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/6ada8258b_3B6DE66C-6CD0-40D5-BB30-131A7F94AB76.PNG"
+        },
+        {
+                "title": "Style 09",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/39f6ef8b5_IMG_0466.jpg"
+        },
+        {
+                "title": "Style 12",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/58559bccb_IMG_0474.JPG"
+        },
+        {
+                "title": "Style 14",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7d6e3d8e4_IMG_0479.jpg"
+        },
+        {
+                "title": "Style 16",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8cf75258a_IMG_0534.jpg"
+        },
+        {
+                "title": "Style 19",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3ec201d11_IMG_0539.jpg"
+        },
+        {
+                "title": "Style 24",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8e766d073_IMG_1902.jpg"
+        },
+        {
+                "title": "Style 25",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cee931f1e_IMG_1921.jpg"
+        },
+        {
+                "title": "Style 26",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/00bf56a70_IMG_4077.JPG"
+        },
+        {
+                "title": "Style 27",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7c70178d1_IMG_4075.JPG"
+        },
+        {
+                "title": "Style 28",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/6e77f30b5_IMG_3755.JPG"
+        },
+        {
+                "title": "Style 29",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3deb63731_IMG_5872.jpg"
+        },
+        {
+                "title": "Style 30",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1a9ec1ab8_IMG_5823.jpg"
+        },
+        {
+                "title": "Style 31",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc17771ae_IMG_3644png.jpg"
+        },
+        {
+                "title": "Style 32",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2868150d7_IMG_0545.jpg"
+        },
+        {
+                "title": "Style 33",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/64f22829c_IMG_0604.jpg"
+        },
+        {
+                "title": "Performance 02",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2901e95d1_IMG_3752.jpg"
+        },
+        {
+                "title": "Performance 03",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/97b51d23f_IMG_3753.jpg"
+        },
+        {
+                "title": "Performance 04",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4f8cfec43_IMG_3756.jpg"
+        },
+        {
+                "title": "Performance 05",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db19e52a2_IMG_6172.jpg"
+        },
+        {
+                "title": "Performance 06",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b1973b975_IMG_4331.jpg"
+        },
+        {
+                "title": "Performance 07",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/d5313f41d_IMG_4571.jpg"
+        },
+        {
+                "title": "Performance 08",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db4b79ba3_IMG_4631.jpg"
+        },
+        {
+                "title": "Performance 10",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/152b8aad4_IMG_5139.jpg"
+        },
+        {
+                "title": "Performance 12",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc9fdf3cd_IMG_5394.jpg"
+        },
+        {
+                "title": "Performance 13",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/d8dd53b03_IMG_5448.jpg"
+        },
+        {
+                "title": "Performance 15",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bc86d9848_IMG_5738.jpg"
+        },
+        {
+                "title": "Performance 16",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8e4e9dd8e_IMG_5879.jpg"
+        },
+        {
+                "title": "Performance 17",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b85f0f431_8C1A2947.jpg"
+        },
+        {
+                "title": "Performance 18",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4b940bb31_IMG_8104.jpg"
+        },
+        {
+                "title": "Performance 20",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dc4663b07_IMG_7602.jpg"
+        },
+        {
+                "title": "Performance 21",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f4c96895d_IMG_7507.jpg"
+        },
+        {
+                "title": "Performance 23",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/14fd10c06_IMG_8080.jpg"
+        },
+        {
+                "title": "Places 08",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/59c332616_IMG_3774.JPG"
+        },
+        {
+                "title": "Places 09",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f5ea146dd_IMG_3775.JPG"
+        },
+        {
+                "title": "Places 10",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc81d299b_IMG_3776.JPG"
+        },
+        {
+                "title": "Places 11",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/374f01ccf_IMG_3778.JPG"
+        },
+        {
+                "title": "Places 12",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bf3d1d97b_IMG_3782.JPG"
+        },
+        {
+                "title": "Modern Market 01",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1cc2b1da5_IMG_4090.jpg"
+        },
+        {
+                "title": "Modern Market 02",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/e96fd04ee_IMG_4331.jpg"
+        },
+        {
+                "title": "Modern Market 03",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db965a320_IMG_4923.jpg"
+        },
+        {
+                "title": "Modern Market 04",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/0ac7877ee_IMG_5394.jpg"
+        },
+        {
+                "title": "Modern Market 05",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2bfd1487a_IMG_5616.jpg"
+        },
+        {
+                "title": "Modern Market 06",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/69db5636b_IMG_5891.jpg"
+        },
+        {
+                "title": "Modern Market 07",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4fb81f8c7_IMG_6172.jpg"
+        },
+        {
+                "title": "Modern Market 08",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/44bb522b1_L49A0786.jpg"
+        },
+        {
+                "title": "Modern Market 09",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b4ebebe57_L49A0987.jpg"
+        },
+        {
+                "title": "Modern Market 10",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dd606e5f9_L49A0876.jpg"
+        },
+        {
+                "title": "Modern Market 11",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/18cfe57a9_L49A1097.jpg"
+        },
+        {
+                "title": "Modern Market 12",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f1a51e2b7_L49A1715.jpg"
+        },
+        {
+                "title": "Modern Market 13",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/a3cdc19c7_IMG_5448.jpg"
+        },
+        {
+                "title": "Modern Market 14",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bc517d6cf_IMG_4070.jpg"
+        },
+        {
+                "title": "People 01",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dd565a184_IMG_3763.jpg"
+        },
+        {
+                "title": "People 02",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/73692e9af_IMG_3764.jpg"
+        },
+        {
+                "title": "People 03",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2195b21ce_IMG_3765.jpg"
+        },
+        {
+                "title": "People 04",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/386762c24_IMG_3767.jpg"
+        },
+        {
+                "title": "People 05",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b69bd94b9_IMG_3770.jpg"
+        },
+        {
+                "title": "People 06",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/c30507cd5_IMG_3781.jpg"
+        }
       ],
       videos: [
         { title: 'Video 01', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/7a934e9d4_Sequence01_1.MP4' },

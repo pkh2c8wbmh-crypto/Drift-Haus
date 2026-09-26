@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062d41">
+  <meta name="description" content="Drift Haus Creative Studio creates photography, film, and brand stories from Tampa, Florida.">
+  <title>Selected Work — Drift Haus</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23062d41'/%3E%3Cpath d='M8 18c15 0 17-12 32-12M8 28c17 0 22-13 42-13M8 38c18 0 26-12 48-12M8 48c20 0 28-12 48-12M8 58c22 0 29-10 48-10' fill='none' stroke='%23f1eee6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root { --ink:#062d41; --teal:#1b5a79; --paper:#f1eee6; --line:rgba(241,238,230,.29); --muted:#b8d0da; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--paper); font-family:Arial,Helvetica,sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid #a9d8eb; outline-offset:5px; }
+    .shell { width:min(100% - 72px, 1500px); margin:auto; }
+    .site-header { position:absolute; z-index:5; top:0; left:0; width:100%; background:linear-gradient(to bottom,rgba(3,31,48,.84),transparent); }
+    .header-inner { min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .brand { display:flex; align-items:center; gap:15px; min-width:0; white-space:nowrap; }
+    .brand img { display:block; object-fit:contain; filter:invert(1); }
+    .brand-mark { height:44px; width:34px; }
+    .brand-wordmark { width:112px; height:auto; }
+    .nav { display:flex; align-items:center; gap:36px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+    .nav a { padding:12px 0; transition:opacity .2s; }
+    .nav a:hover { opacity:.63; }
+    .nav .nav-contact { border:1px solid rgba(255,255,255,.62); padding:14px 19px; }
+    .hero { position:relative; min-height:min(820px,100svh); overflow:hidden; background:#062d41; display:grid; align-items:end; }
+    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; }
+    .hero-logo { position:absolute; z-index:2; top:49%; left:50%; transform:translate(-50%,-50%); width:min(45vw,620px); max-height:75%; object-fit:contain; filter:invert(1); -webkit-mask-image:linear-gradient(to bottom,#000 0 89.8%,transparent 89.8% 92.8%,#000 92.8% 100%); mask-image:linear-gradient(to bottom,#000 0 89.8%,transparent 89.8% 92.8%,#000 92.8% 100%); }
+    .hero::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(to bottom,rgba(2,29,45,.16) 5%,transparent 31%,transparent 66%,rgba(2,28,42,.82) 100%); }
+    .hero-bottom { position:relative; z-index:1; max-width:1280px; margin:0 auto; align-self:end; padding:0 0 34px; display:flex; justify-content:space-between; align-items:end; gap:20px; }
+    .hero-bottom p, .hero-bottom a { margin:0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; }
+    .hero-bottom a { border-bottom:1px solid rgba(255,255,255,.65); padding-bottom:7px; }
+    .intro { position:relative; overflow:hidden; background:var(--paper); color:var(--ink); padding:120px 0 128px; }
+    .intro::before { content:""; position:absolute; inset:0; background:url('assets/leaf-pattern.png') right center / 850px auto no-repeat; opacity:.7; -webkit-mask-image:linear-gradient(to right,transparent 18%,#000 74%); mask-image:linear-gradient(to right,transparent 18%,#000 74%); pointer-events:none; }
+    .intro .shell { position:relative; }
+    .eyebrow { margin:0 0 35px; font-size:12px; letter-spacing:.26em; text-transform:uppercase; font-weight:600; }
+    .intro-grid { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(250px,.6fr); gap:9vw; align-items:end; }
+    h1,h2,h3,p { margin-top:0; }
+    .intro h1 { max-width:900px; margin:0; font-family:Georgia,'Times New Roman',serif; font-size:clamp(48px,6.1vw,106px); line-height:1.04; letter-spacing:-.055em; font-weight:400; }
+    .intro-copy { font-size:19px; line-height:1.65; max-width:365px; margin:0 0 7px; transform:translateX(-96px); }
+    .services { padding:110px 0 132px; background:var(--ink); }
+    .section-top { display:flex; justify-content:space-between; gap:30px; align-items:start; border-top:1px solid var(--line); padding-top:25px; }
+    .section-top .eyebrow { margin:0; }
+    .section-top p { max-width:340px; color:var(--muted); font-size:15px; line-height:1.65; }
+    .service-list { margin-top:92px; border-bottom:1px solid var(--line); }
+    .service { display:grid; grid-template-columns:80px 1fr 30%; align-items:baseline; gap:20px; border-top:1px solid var(--line); padding:35px 0 40px; }
+    .service span { font-family:Georgia,serif; font-size:18px; color:#99c4d6; }
+    .service h2 { margin:0; font-family:Georgia,serif; font-weight:400; font-size:clamp(38px,5.3vw,82px); line-height:1.05; letter-spacing:-.045em; }
+    .service p { margin:0; color:var(--muted); line-height:1.6; font-size:16px; }
+    .work { background:var(--paper); color:var(--ink); padding:110px 0 124px; }
+    .work .section-top { border-color:rgba(6,45,65,.24); }
+    .work .section-top p { color:var(--teal); }
+    .work-tabs { display:flex; gap:11px; margin:52px 0 35px; }
+    .work-tab { appearance:none; border:1px solid rgba(6,45,65,.45); background:transparent; color:var(--ink); cursor:pointer; font:600 11px Arial,Helvetica,sans-serif; letter-spacing:.18em; padding:13px 19px; text-transform:uppercase; }
+    .work-tab[aria-selected="true"] { background:var(--ink); color:var(--paper); }
+    .work-back { appearance:none; border:0; background:transparent; color:var(--teal); cursor:pointer; font:600 10px Arial,Helvetica,sans-serif; letter-spacing:.16em; margin:-12px 0 32px; padding:8px 0; text-transform:uppercase; }
+    .work-back:hover { color:var(--ink); }
+    .work-category-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .work-category { position:relative; min-height:430px; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; padding:0; text-align:left; }
+    .work-category img, .work-category video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
+    .work-category:hover img, .work-category:hover video { transform:scale(1.04); }
+    .work-category::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(3,31,48,.88),transparent 65%); }
+    .work-category-label { position:absolute; z-index:1; left:23px; right:23px; bottom:22px; font:400 clamp(30px,3vw,48px)/1.05 Georgia,'Times New Roman',serif; letter-spacing:-.03em; }
+    .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .work-grid[data-media="videos"] .work-item { aspect-ratio:16 / 9; min-height:0; }
+    .work-grid[data-media="videos"] .work-item:nth-child(1), .work-grid[data-media="videos"] .work-item:nth-child(5) { grid-row:span 1; min-height:0; }
+    .work-item { appearance:none; position:relative; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; min-height:350px; padding:0; text-align:left; }
+    .work-item img, .work-item video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
+    .work-item:hover img, .work-item:hover video { transform:scale(1.04); }
+    .work-item::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(3,31,48,.88),transparent 62%); }
+    .work-item:nth-child(1), .work-item:nth-child(5) { grid-row:span 2; min-height:520px; }
+    .work-meta { position:absolute; z-index:1; left:23px; right:23px; bottom:22px; }
+    .work-meta span { display:block; color:#a9d8eb; font-size:10px; font-weight:600; letter-spacing:.17em; text-transform:uppercase; margin-bottom:8px; }
+    .work-meta strong { font:400 clamp(27px,2.6vw,42px)/1.05 Georgia,'Times New Roman',serif; letter-spacing:-.03em; }
+    .work-play { position:absolute; z-index:1; display:grid; place-items:center; top:20px; right:20px; height:44px; width:44px; border:1px solid rgba(241,238,230,.75); border-radius:50%; font-size:15px; padding-left:2px; }
+    .work-dialog { border:0; padding:0; max-width:min(1000px,92vw); max-height:90vh; background:transparent; }
+    .work-dialog::backdrop { background:rgba(2,20,32,.9); backdrop-filter:blur(4px); }
+    .work-dialog-content { position:relative; display:grid; place-items:center; }
+    .work-dialog img, .work-dialog video { display:block; max-width:100%; max-height:82vh; object-fit:contain; background:#021c2c; }
+    .work-dialog p { color:var(--paper); font-size:11px; letter-spacing:.18em; margin:14px 0 0; text-align:center; text-transform:uppercase; }
+    .work-close { position:absolute; top:12px; right:12px; z-index:2; width:42px; height:42px; border:0; border-radius:50%; background:var(--paper); color:var(--ink); cursor:pointer; font-size:26px; line-height:1; }
+    .work-nav { position:absolute; z-index:1; top:50%; transform:translateY(-50%); width:48px; height:48px; border:1px solid rgba(241,238,230,.75); border-radius:50%; background:rgba(2,28,42,.58); color:var(--paper); cursor:pointer; font-size:28px; line-height:1; transition:background .2s; }
+    .work-nav:hover { background:var(--ink); }
+    .work-prev { left:18px; }
+    .work-next { right:18px; }
+    .manifesto { background:#17465e; display:grid; grid-template-columns:1fr 1fr; min-height:540px; }
+    .manifesto-art { position:relative; min-height:420px; overflow:hidden; background:var(--paper); }
+    .manifesto-mark { position:absolute; inset:42px; width:calc(100% - 84px); height:calc(100% - 84px); object-fit:contain; object-position:center; }
+    .manifesto-text { padding:70px min(8vw,125px); display:flex; flex-direction:column; justify-content:center; }
+    .manifesto-text h2 { font-family:Georgia,serif; font-size:clamp(42px,4vw,68px); font-weight:400; line-height:1.1; letter-spacing:-.04em; max-width:620px; margin-bottom:28px; }
+    .manifesto-text p:not(.eyebrow) { color:#c9dce5; font-size:17px; line-height:1.7; max-width:470px; }
+    .contact { position:relative; overflow:hidden; background:#c9dde6; color:var(--ink); padding:116px 0 100px; }
+    .contact::before { content:""; position:absolute; inset:0; background:url('assets/leaf-pattern-navy.png') right center / min(58vw,880px) auto no-repeat; opacity:.8; -webkit-mask-image:linear-gradient(to right,transparent 43%,#000 78%); mask-image:linear-gradient(to right,transparent 43%,#000 78%); pointer-events:none; }
+    .contact .shell { position:relative; }
+    .contact h2 { font-family:Georgia,serif; font-weight:400; font-size:clamp(56px,8.4vw,140px); letter-spacing:-.065em; line-height:1; max-width:1160px; margin:0 0 55px; }
+    .contact-links { display:flex; flex-wrap:wrap; gap:18px; }
+    .button { display:inline-flex; min-height:54px; align-items:center; justify-content:center; border:1px solid var(--ink); padding:14px 24px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; transition:background .2s,color .2s; }
+    .button:hover { background:var(--ink); color:var(--paper); }
+    .button.primary { background:var(--ink); color:var(--paper); }
+    .button.primary:hover { background:var(--teal); }
+    footer { background:#c9dde6; color:var(--ink); }
+    .footer-inner { border-top:1px solid rgba(6,45,65,.24); padding:26px 0 34px; display:flex; justify-content:space-between; gap:20px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+    .footer-inner div { display:flex; gap:25px; }
+    @media (max-width:850px) {
+      .shell { width:min(100% - 40px,1500px); }
+      .header-inner { min-height:76px; }
+      .brand { gap:11px; }
+      .brand-mark { height:32px; width:25px; }
+      .brand-wordmark { width:98px; }
+      .nav { gap:17px; font-size:11px; letter-spacing:.09em; }
+      .nav a:first-child { display:none; }
+      .nav .nav-contact { padding:10px 12px; }
+      .hero { min-height:0; padding-top:76px; display:block; }
+      .hero-image { position:relative; display:block; height:auto; aspect-ratio:3/2; object-fit:contain; width:100%; }
+      .hero-logo { top:calc(76px + 33.333vw); width:56vw; max-height:none; }
+      .hero::after { display:none; }
+      .hero-bottom { padding:22px 0 26px; }
+      .intro { padding:75px 0 85px; }
+      .intro::before { background-size:700px auto; background-position:60% center; opacity:.4; }
+      .intro-grid { grid-template-columns:1fr; gap:38px; }
+      .intro-copy { max-width:560px; }
+      .services { padding:80px 0 95px; }
+      .work { padding:80px 0 90px; }
+      .work-category-grid, .work-grid { grid-template-columns:repeat(2,1fr); }
+      .work-category { min-height:400px; }
+      .work-item:nth-child(1), .work-item:nth-child(5) { grid-row:span 1; min-height:400px; }
+      .service-list { margin-top:55px; }
+      .service { grid-template-columns:42px 1fr; }
+      .service p { grid-column:2; }
+      .manifesto { grid-template-columns:1fr; }
+      .manifesto-art { min-height:420px; }
+      .manifesto-text { padding:70px 7vw 82px; }
+      .contact { padding:85px 0; }
+      .contact::before { background-size:620px auto; background-position:65% center; opacity:.4; }
+    }
+    @media (max-width:540px) {
+      .shell { width:calc(100% - 34px); }
+      .brand-wordmark { width:88px; }
+      .nav { gap:0; }
+      .nav a:nth-child(2) { display:none; }
+      .hero-bottom { width:calc(100% - 60px); flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .hero-bottom p, .hero-bottom a { font-size:10px; letter-spacing:.12em; }
+      .intro h1 { font-size:clamp(47px,12vw,68px); }
+      .intro-copy { font-size:17px; }
+      .section-top { display:block; }
+      .section-top p { margin-top:18px; }
+      .service { grid-template-columns:30px 1fr; gap:13px; padding:27px 0 30px; }
+      .service h2 { font-size:39px; }
+      .work-tabs { margin:35px 0 20px; }
+      .work-back { margin-bottom:20px; }
+      .work-category-grid, .work-grid { grid-template-columns:1fr; gap:12px; }
+      .work-category, .work-item, .work-item:nth-child(1), .work-item:nth-child(5) { min-height:360px; }
+      .manifesto-art { min-height:350px; }
+      .manifesto-text h2 { font-size:45px; }
+      .contact h2 { font-size:clamp(55px,15vw,80px); }
+      .contact-links { display:grid; }
+      .footer-inner { display:block; line-height:1.8; }
+      .footer-inner div { margin-top:12px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+  
+    .portfolio-page .site-header { position:relative; background:var(--ink); }
+    .portfolio-page .header-inner { min-height:104px; }
+    .portfolio-page .work { min-height:calc(100vh - 104px); }
+    @media (max-width:850px) { .portfolio-page .header-inner { min-height:76px; } }
+  </style>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="/index.html#top" aria-label="Drift Haus, back to top"><img class="brand-mark" src="assets/flow-mark.png" alt=""><img class="brand-wordmark" src="assets/drift-haus-wordmark.png" alt=""></a>
+      <nav class="nav" aria-label="Main navigation"><a href="/index.html#about">The studio</a><a href="/index.html#services">What we do</a><a href="/work.html">Our work</a><a class="nav-contact" href="/index.html#contact">Get in touch</a></nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="work" id="work" aria-labelledby="work-heading">
+      <div class="shell">
+        <div class="section-top"><p class="eyebrow">Selected work / 03</p><p>Original photography and motion from Drift Haus Media.</p></div>
+        <h2 id="work-heading" style="position:absolute;left:-9999px">Our Work</h2>
+        <div class="work-tabs" role="tablist" aria-label="Portfolio media"><button class="work-tab" type="button" role="tab" aria-selected="true" data-work-tab="photos">Photos</button><button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="videos">Videos</button></div>
+        <button class="work-back" id="work-back" type="button" hidden>← All photo categories</button>
+        <div class="work-category-grid" id="work-category-grid" aria-live="polite"></div>
+        <div class="work-grid" id="work-grid" aria-live="polite" hidden></div>
+      </div>
+    </section>
+  </main>
+    <dialog class="work-dialog" id="work-dialog"><div class="work-dialog-content"><button class="work-close" type="button" aria-label="Close enlarged work">×</button><button class="work-nav work-prev" type="button" aria-label="Previous work">‹</button><div id="work-dialog-media"></div><button class="work-nav work-next" type="button" aria-label="Next work">›</button><p id="work-dialog-caption"></p></div></dialog>
+  <footer><div class="shell footer-inner"><span>© <span id="year">2026</span> Drift Haus Creative Studio</span><div><span>Tampa / Florida</span><a href="https://www.instagram.com/drifthausmedia/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const work = {
+      photos: [
+        {
+                "title": "Products 01",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f4df41eb7_IMG_9171.jpg"
+        },
+        {
+                "title": "Products 02",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cd855beca_IMG_9815.jpg"
+        },
+        {
+                "title": "Products 03",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3fbef678c_IMG_9882.jpg"
+        },
+        {
+                "title": "Products 04",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/55db50542_IMG_3750.jpg"
+        },
+        {
+                "title": "Products 06",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/69138cb5a_IMG_4356.jpg"
+        },
+        {
+                "title": "Products 07",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f59c5daf6_IMG_4357.jpg"
+        },
+        {
+                "title": "Products 08",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/9c11c9482_IMG_4358.jpg"
+        },
+        {
+                "title": "Products 10",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/e7e095cbe_IMG_4360.png"
+        },
+        {
+                "title": "Products 11",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b18e36eb2_IMG_5592.JPG"
+        },
+        {
+                "title": "Products 12",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/13a2355e1_IMG_0542.jpg"
+        },
+        {
+                "title": "Products 13",
+                "label": "Products",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/5bce556d6_6C0A0272-E48A-4F9F-B06D-634A05825C3E.PNG"
+        },
+        {
+                "title": "Luxury Living 01",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/25066a07e_IMG_4083.jpg"
+        },
+        {
+                "title": "Luxury Living 02",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/5ed49a7b7_IMG_4113.jpg"
+        },
+        {
+                "title": "Luxury Living 03",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7d46e939c_IMG_4114.jpg"
+        },
+        {
+                "title": "Luxury Living 04",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3ae173263_IMG_4130.jpg"
+        },
+        {
+                "title": "Luxury Living 05",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1bffb5f3f_IMG_4147.jpg"
+        },
+        {
+                "title": "Luxury Living 06",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b77b01289_IMG_4148.jpg"
+        },
+        {
+                "title": "Luxury Living 07",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/9f7076cf9_IMG_4161.jpg"
+        },
+        {
+                "title": "Luxury Living 08",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7166d36be_IMG_4167.jpg"
+        },
+        {
+                "title": "Luxury Living 09",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3fa5c68d8_IMG_4173.jpg"
+        },
+        {
+                "title": "Luxury Living 11",
+                "label": "Luxury Living",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1fc73e045_IMG_4071.jpg"
+        },
+        {
+                "title": "Style 01",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7728a4fb2_F4B7562A-1AB3-4428-AAF1-D9B6FBDFE9AF.PNG"
+        },
+        {
+                "title": "Style 03",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/76222f5ec_BEA99DC6-794A-44AC-88F8-9AB377EACB88.PNG"
+        },
+        {
+                "title": "Style 07",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/657b6c37b_03CFE927-74C2-4CB2-909B-7FF1CD345BA0.PNG"
+        },
+        {
+                "title": "Style 08",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/6ada8258b_3B6DE66C-6CD0-40D5-BB30-131A7F94AB76.PNG"
+        },
+        {
+                "title": "Style 09",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/39f6ef8b5_IMG_0466.jpg"
+        },
+        {
+                "title": "Style 12",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/58559bccb_IMG_0474.JPG"
+        },
+        {
+                "title": "Style 14",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7d6e3d8e4_IMG_0479.jpg"
+        },
+        {
+                "title": "Style 16",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8cf75258a_IMG_0534.jpg"
+        },
+        {
+                "title": "Style 19",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3ec201d11_IMG_0539.jpg"
+        },
+        {
+                "title": "Style 24",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8e766d073_IMG_1902.jpg"
+        },
+        {
+                "title": "Style 25",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cee931f1e_IMG_1921.jpg"
+        },
+        {
+                "title": "Style 26",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/00bf56a70_IMG_4077.JPG"
+        },
+        {
+                "title": "Style 27",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/7c70178d1_IMG_4075.JPG"
+        },
+        {
+                "title": "Style 28",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/6e77f30b5_IMG_3755.JPG"
+        },
+        {
+                "title": "Style 29",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/3deb63731_IMG_5872.jpg"
+        },
+        {
+                "title": "Style 30",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1a9ec1ab8_IMG_5823.jpg"
+        },
+        {
+                "title": "Style 31",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc17771ae_IMG_3644png.jpg"
+        },
+        {
+                "title": "Style 32",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2868150d7_IMG_0545.jpg"
+        },
+        {
+                "title": "Style 33",
+                "label": "Style",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/64f22829c_IMG_0604.jpg"
+        },
+        {
+                "title": "Performance 02",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2901e95d1_IMG_3752.jpg"
+        },
+        {
+                "title": "Performance 03",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/97b51d23f_IMG_3753.jpg"
+        },
+        {
+                "title": "Performance 04",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4f8cfec43_IMG_3756.jpg"
+        },
+        {
+                "title": "Performance 05",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db19e52a2_IMG_6172.jpg"
+        },
+        {
+                "title": "Performance 06",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b1973b975_IMG_4331.jpg"
+        },
+        {
+                "title": "Performance 07",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/d5313f41d_IMG_4571.jpg"
+        },
+        {
+                "title": "Performance 08",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db4b79ba3_IMG_4631.jpg"
+        },
+        {
+                "title": "Performance 10",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/152b8aad4_IMG_5139.jpg"
+        },
+        {
+                "title": "Performance 12",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc9fdf3cd_IMG_5394.jpg"
+        },
+        {
+                "title": "Performance 13",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/d8dd53b03_IMG_5448.jpg"
+        },
+        {
+                "title": "Performance 15",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bc86d9848_IMG_5738.jpg"
+        },
+        {
+                "title": "Performance 16",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/8e4e9dd8e_IMG_5879.jpg"
+        },
+        {
+                "title": "Performance 17",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b85f0f431_8C1A2947.jpg"
+        },
+        {
+                "title": "Performance 18",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4b940bb31_IMG_8104.jpg"
+        },
+        {
+                "title": "Performance 20",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dc4663b07_IMG_7602.jpg"
+        },
+        {
+                "title": "Performance 21",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f4c96895d_IMG_7507.jpg"
+        },
+        {
+                "title": "Performance 23",
+                "label": "Performance",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/14fd10c06_IMG_8080.jpg"
+        },
+        {
+                "title": "Places 08",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/59c332616_IMG_3774.JPG"
+        },
+        {
+                "title": "Places 09",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f5ea146dd_IMG_3775.JPG"
+        },
+        {
+                "title": "Places 10",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/cc81d299b_IMG_3776.JPG"
+        },
+        {
+                "title": "Places 11",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/374f01ccf_IMG_3778.JPG"
+        },
+        {
+                "title": "Places 12",
+                "label": "Places",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bf3d1d97b_IMG_3782.JPG"
+        },
+        {
+                "title": "Modern Market 01",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/1cc2b1da5_IMG_4090.jpg"
+        },
+        {
+                "title": "Modern Market 02",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/e96fd04ee_IMG_4331.jpg"
+        },
+        {
+                "title": "Modern Market 03",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/db965a320_IMG_4923.jpg"
+        },
+        {
+                "title": "Modern Market 04",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/0ac7877ee_IMG_5394.jpg"
+        },
+        {
+                "title": "Modern Market 05",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2bfd1487a_IMG_5616.jpg"
+        },
+        {
+                "title": "Modern Market 06",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/69db5636b_IMG_5891.jpg"
+        },
+        {
+                "title": "Modern Market 07",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/4fb81f8c7_IMG_6172.jpg"
+        },
+        {
+                "title": "Modern Market 08",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/44bb522b1_L49A0786.jpg"
+        },
+        {
+                "title": "Modern Market 09",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b4ebebe57_L49A0987.jpg"
+        },
+        {
+                "title": "Modern Market 10",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dd606e5f9_L49A0876.jpg"
+        },
+        {
+                "title": "Modern Market 11",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/18cfe57a9_L49A1097.jpg"
+        },
+        {
+                "title": "Modern Market 12",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/f1a51e2b7_L49A1715.jpg"
+        },
+        {
+                "title": "Modern Market 13",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/a3cdc19c7_IMG_5448.jpg"
+        },
+        {
+                "title": "Modern Market 14",
+                "label": "Modern Market Collective",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/bc517d6cf_IMG_4070.jpg"
+        },
+        {
+                "title": "People 01",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/dd565a184_IMG_3763.jpg"
+        },
+        {
+                "title": "People 02",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/73692e9af_IMG_3764.jpg"
+        },
+        {
+                "title": "People 03",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/2195b21ce_IMG_3765.jpg"
+        },
+        {
+                "title": "People 04",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/386762c24_IMG_3767.jpg"
+        },
+        {
+                "title": "People 05",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/b69bd94b9_IMG_3770.jpg"
+        },
+        {
+                "title": "People 06",
+                "label": "People",
+                "src": "https://media.base44.com/images/public/69e6716b4226804d637b2283/c30507cd5_IMG_3781.jpg"
+        }
+      ],
+      videos: [
+        { title: 'Video 01', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/7a934e9d4_Sequence01_1.MP4' },
+        { title: 'Video 02', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/32b5b35c8_Sequence02_3.MP4' },
+        { title: 'Video 03', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/f0ee0da22_Sequence03.MP4' },
+        { title: 'Video 04', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/91679c9e8_SequenceFinal.mov' },
+        { title: 'Video 05', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/0eb99469c_videotest.mov' },
+        { title: 'Video 06', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/46375883b_testvideo2.mov' },
+        { title: 'Video 07', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/bdf0ac129_testingvideo3.mov' },
+        { title: 'Video 08', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/db5a176c0_GoddessIsa.MP4' },
+        { title: 'Video 09', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/70ad2869b_testingvideo5.mov' },
+        { title: 'Video 10', label: 'Videography', src: 'https://media.base44.com/videos/public/69e6716b4226804d637b2283/1e0654389_testingvideo6.mov' }
+      ]
+    };
+    const grid = document.getElementById('work-grid');
+    const categoryGrid = document.getElementById('work-category-grid');
+    const backButton = document.getElementById('work-back');
+    const dialog = document.getElementById('work-dialog');
+    const dialogMedia = document.getElementById('work-dialog-media');
+    const dialogCaption = document.getElementById('work-dialog-caption');
+    const categories = ['Style', 'Products', 'Performance', 'Luxury Living', 'People', 'Places'];
+    const projectTitles = { Style: 'Styled Presence', Products: 'Product Desire', Performance: 'In Motion', 'Luxury Living': 'Coastal Escape', People: 'Founder Frame', Places: 'Open Roads' };
+
+    work.photos.forEach((item) => {
+      item.category = item.label === 'Modern Market Collective' ? 'People' : item.label;
+      item.title = item.label === 'Modern Market Collective' ? 'Modern Market Collective' : (projectTitles[item.category] || '');
+      item.label = item.category;
+    });
+    work.videos.forEach((item) => { item.title = ''; });
+
+    let selectedWorkType = 'photos';
+    let selectedPhotoCategory = null;
+    let activeWorkType = 'photos';
+    let activeWorkIndex = 0;
+
+    function visibleWork(type) {
+      return type === 'photos' && selectedPhotoCategory
+        ? work.photos.filter((item) => item.category === selectedPhotoCategory)
+        : work[type];
+    }
+
+    function renderCategories() {
+      categoryGrid.innerHTML = categories.map((category) => {
+        const cover = work.photos.find((item) => item.category === category);
+        return `<button class="work-category" type="button" data-category="${category}" aria-label="View ${category} photos"><img src="${cover.src}" alt="" loading="lazy"><span class="work-category-label">${category}</span></button>`;
+      }).join('');
+      categoryGrid.hidden = false;
+      grid.replaceChildren();
+      grid.hidden = true;
+      backButton.hidden = true;
+    }
+
+    function renderWork(type = selectedWorkType) {
+      selectedWorkType = type;
+      if (type === 'photos' && !selectedPhotoCategory) {
+        renderCategories();
+        return;
+      }
+      if (type === 'videos') {
+        categoryGrid.replaceChildren();
+        categoryGrid.hidden = true;
+      }
+      const items = visibleWork(type);
+      grid.dataset.media = type;
+      grid.innerHTML = items.map((item, index) => {
+        const itemName = item.title || item.label;
+        const meta = `<span class="work-meta"><span>${item.label}</span>${item.title ? `<strong>${item.title}</strong>` : ''}</span>`;
+        return `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${itemName}">${type === 'photos' ? `<img src="${item.src}" alt="${itemName}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="auto" aria-hidden="true"></video><span class="work-play">▶</span>`}${meta}</button>`;
+      }).join('');
+      if (type === 'videos') {
+        grid.querySelectorAll('video').forEach((video) => video.addEventListener('loadeddata', () => {
+          video.currentTime = Math.min(0.5, Math.max(0, video.duration / 2));
+        }, { once: true }));
+      }
+      categoryGrid.hidden = true;
+      grid.hidden = false;
+      backButton.hidden = type !== 'photos';
+      if (type === 'photos') backButton.textContent = '← All photo categories';
+    }
+
+    function showActiveWork() {
+      const item = visibleWork(activeWorkType)[activeWorkIndex];
+      const itemName = item.title || item.label;
+      dialogMedia.innerHTML = activeWorkType === 'photos' ? `<img src="${item.src}" alt="${itemName}">` : `<video src="${item.src}" controls autoplay playsinline></video>`;
+      dialogCaption.textContent = item.title ? `${item.label} — ${item.title}` : item.label;
+    }
+
+    function openWork(type, index) {
+      activeWorkType = type;
+      activeWorkIndex = Number(index);
+      showActiveWork();
+      dialog.showModal();
+    }
+
+    function navigateWork(direction) {
+      const items = visibleWork(activeWorkType);
+      activeWorkIndex = (activeWorkIndex + direction + items.length) % items.length;
+      showActiveWork();
+    }
+
+    document.querySelectorAll('[data-work-tab]').forEach((tab) => tab.addEventListener('click', () => {
+      document.querySelectorAll('[data-work-tab]').forEach((button) => button.setAttribute('aria-selected', button === tab));
+      selectedWorkType = tab.dataset.workTab;
+      if (selectedWorkType === 'photos') selectedPhotoCategory = null;
+      renderWork();
+    }));
+
+    categoryGrid.addEventListener('click', (event) => {
+      const cover = event.target.closest('[data-category]');
+      if (!cover) return;
+      selectedPhotoCategory = cover.dataset.category;
+      renderWork('photos');
+    });
+
+    backButton.addEventListener('click', () => {
+      selectedPhotoCategory = null;
+      renderWork('photos');
+    });
+
+    grid.addEventListener('click', (event) => {
+      const item = event.target.closest('.work-item');
+      if (item) openWork(item.dataset.type, item.dataset.index);
+    });
+    document.querySelector('.work-prev').addEventListener('click', () => navigateWork(-1));
+    document.querySelector('.work-next').addEventListener('click', () => navigateWork(1));
+    document.addEventListener('keydown', (event) => {
+      if (!dialog.open) return;
+      if (event.key === 'ArrowLeft') { event.preventDefault(); navigateWork(-1); }
+      if (event.key === 'ArrowRight') { event.preventDefault(); navigateWork(1); }
+    });
+    document.querySelector('.work-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener('close', () => { dialogMedia.innerHTML = ''; });
+    renderWork();
+  </script>
+</body>
+</html>

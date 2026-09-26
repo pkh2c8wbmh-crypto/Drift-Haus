@@ -672,6 +672,7 @@
         return `<button class="work-category" type="button" data-category="${category}" aria-label="View ${category} photos"><img src="${cover.src}" alt="" loading="lazy"><span class="work-category-label">${category}</span></button>`;
       }).join('');
       categoryGrid.hidden = false;
+      grid.replaceChildren();
       grid.hidden = true;
       backButton.hidden = true;
     }
@@ -681,6 +682,10 @@
       if (type === 'photos' && !selectedPhotoCategory) {
         renderCategories();
         return;
+      }
+      if (type === 'videos') {
+        categoryGrid.replaceChildren();
+        categoryGrid.hidden = true;
       }
       const items = visibleWork(type);
       grid.dataset.media = type;

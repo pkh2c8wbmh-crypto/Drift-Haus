@@ -64,6 +64,8 @@
     .work-category::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(3,31,48,.88),transparent 65%); }
     .work-category-label { position:absolute; z-index:1; left:23px; right:23px; bottom:22px; font:400 clamp(30px,3vw,48px)/1.05 Georgia,'Times New Roman',serif; letter-spacing:-.03em; }
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .work-grid[data-media="videos"] .work-item { aspect-ratio:16 / 9; min-height:0; }
+    .work-grid[data-media="videos"] .work-item:nth-child(1), .work-grid[data-media="videos"] .work-item:nth-child(5) { grid-row:span 1; min-height:0; }
     .work-item { appearance:none; position:relative; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; min-height:350px; padding:0; text-align:left; }
     .work-item img, .work-item video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
     .work-item:hover img, .work-item:hover video { transform:scale(1.04); }
@@ -651,10 +653,10 @@
       item.title = item.label === 'Modern Market Collective' ? 'Modern Market Collective' : (projectTitles[item.category] || '');
       item.label = item.category;
     });
+    work.videos.forEach((item) => { item.title = ''; });
 
     let selectedWorkType = 'photos';
     let selectedPhotoCategory = null;
-    let videoFolderOpen = false;
     let activeWorkType = 'photos';
     let activeWorkIndex = 0;
 
@@ -674,34 +676,28 @@
       backButton.hidden = true;
     }
 
-    function renderVideoFolder() {
-      const cover = work.videos[0];
-      categoryGrid.innerHTML = `<button class="work-category" type="button" data-video-folder aria-label="Open Videos folder"><video src="${cover.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-category-label">Videos</span></button>`;
-      categoryGrid.hidden = false;
-      grid.hidden = true;
-      backButton.hidden = true;
-    }
-
     function renderWork(type = selectedWorkType) {
       selectedWorkType = type;
       if (type === 'photos' && !selectedPhotoCategory) {
         renderCategories();
         return;
       }
-      if (type === 'videos' && !videoFolderOpen) {
-        renderVideoFolder();
-        return;
-      }
       const items = visibleWork(type);
+      grid.dataset.media = type;
       grid.innerHTML = items.map((item, index) => {
         const itemName = item.title || item.label;
         const meta = `<span class="work-meta"><span>${item.label}</span>${item.title ? `<strong>${item.title}</strong>` : ''}</span>`;
-        return `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${itemName}">${type === 'photos' ? `<img src="${item.src}" alt="${itemName}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-play">▶</span>`}${meta}</button>`;
+        return `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${itemName}">${type === 'photos' ? `<img src="${item.src}" alt="${itemName}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="auto" aria-hidden="true"></video><span class="work-play">▶</span>`}${meta}</button>`;
       }).join('');
+      if (type === 'videos') {
+        grid.querySelectorAll('video').forEach((video) => video.addEventListener('loadeddata', () => {
+          video.currentTime = Math.min(0.5, Math.max(0, video.duration / 2));
+        }, { once: true }));
+      }
       categoryGrid.hidden = true;
       grid.hidden = false;
-      backButton.hidden = false;
-      backButton.textContent = type === 'photos' ? '← All photo categories' : '← All video folders';
+      backButton.hidden = type !== 'photos';
+      if (type === 'photos') backButton.textContent = '← All photo categories';
     }
 
     function showActiveWork() {
@@ -728,27 +724,19 @@
       document.querySelectorAll('[data-work-tab]').forEach((button) => button.setAttribute('aria-selected', button === tab));
       selectedWorkType = tab.dataset.workTab;
       if (selectedWorkType === 'photos') selectedPhotoCategory = null;
-      if (selectedWorkType === 'videos') videoFolderOpen = false;
       renderWork();
     }));
 
     categoryGrid.addEventListener('click', (event) => {
       const cover = event.target.closest('[data-category]');
-      if (cover) {
-        selectedPhotoCategory = cover.dataset.category;
-        renderWork('photos');
-        return;
-      }
-      if (event.target.closest('[data-video-folder]')) {
-        videoFolderOpen = true;
-        renderWork('videos');
-      }
+      if (!cover) return;
+      selectedPhotoCategory = cover.dataset.category;
+      renderWork('photos');
     });
 
     backButton.addEventListener('click', () => {
-      if (selectedWorkType === 'photos') selectedPhotoCategory = null;
-      if (selectedWorkType === 'videos') videoFolderOpen = false;
-      renderWork();
+      selectedPhotoCategory = null;
+      renderWork('photos');
     });
 
     grid.addEventListener('click', (event) => {

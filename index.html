@@ -55,6 +55,10 @@
     .work-tabs { display:flex; gap:11px; margin:52px 0 35px; }
     .work-tab { appearance:none; border:1px solid rgba(6,45,65,.45); background:transparent; color:var(--ink); cursor:pointer; font:600 11px Arial,Helvetica,sans-serif; letter-spacing:.18em; padding:13px 19px; text-transform:uppercase; }
     .work-tab[aria-selected="true"] { background:var(--ink); color:var(--paper); }
+    .work-filters { display:flex; flex-wrap:wrap; gap:9px; margin:-13px 0 35px; }
+    .work-filters[hidden] { display:none; }
+    .work-filter { appearance:none; border:0; border-bottom:1px solid transparent; background:transparent; color:var(--teal); cursor:pointer; font:600 10px Arial,Helvetica,sans-serif; letter-spacing:.15em; padding:8px 3px; text-transform:uppercase; }
+    .work-filter[aria-pressed="true"] { border-color:var(--ink); color:var(--ink); }
     .work-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
     .work-item { appearance:none; position:relative; overflow:hidden; border:0; background:var(--ink); color:var(--paper); cursor:pointer; min-height:350px; padding:0; text-align:left; }
     .work-item img, .work-item video { display:block; width:100%; height:100%; inset:0; object-fit:cover; position:absolute; transition:transform .5s ease; }
@@ -184,6 +188,7 @@
         <div class="section-top"><p class="eyebrow">Selected work / 03</p><p>Original photography and motion from Drift Haus Media.</p></div>
         <h2 id="work-heading" style="position:absolute;left:-9999px">Our Work</h2>
         <div class="work-tabs" role="tablist" aria-label="Portfolio media"><button class="work-tab" type="button" role="tab" aria-selected="true" data-work-tab="photos">Photos</button><button class="work-tab" type="button" role="tab" aria-selected="false" data-work-tab="videos">Videos</button></div>
+        <div class="work-filters" id="work-filters" aria-label="Photo categories"><button class="work-filter" type="button" aria-pressed="true" data-work-filter="All">All</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Style">Style</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Products">Products</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Performance">Performance</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Luxury Living">Luxury Living</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="People">People</button><button class="work-filter" type="button" aria-pressed="false" data-work-filter="Places">Places</button></div>
         <div class="work-grid" id="work-grid" aria-live="polite"></div>
       </div>
     </section>
@@ -626,34 +631,71 @@
       ]
     };
     const grid = document.getElementById('work-grid');
+    const filters = document.getElementById('work-filters');
     const dialog = document.getElementById('work-dialog');
     const dialogMedia = document.getElementById('work-dialog-media');
     const dialogCaption = document.getElementById('work-dialog-caption');
-    function renderWork(type) {
-      grid.innerHTML = work[type].map((item, index) => `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${item.title}">${type === 'photos' ? `<img src="${item.src}" alt="${item.title}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-play">▶</span>`}<span class="work-meta"><span>${item.label}</span><strong>${item.title}</strong></span></button>`).join('');
-    }
+    const projectTitles = { Style: 'Styled Presence', Products: 'Product Desire', Performance: 'In Motion', 'Luxury Living': 'Coastal Escape', People: 'Founder Frame', Places: 'Open Roads' };
+
+    work.photos.forEach((item) => {
+      item.category = item.label === 'Modern Market Collective' ? 'People' : item.label;
+      item.title = item.label === 'Modern Market Collective' ? 'Modern Market Collective' : (projectTitles[item.category] || '');
+      item.label = item.category;
+    });
+
+    let selectedWorkType = 'photos';
+    let selectedPhotoFilter = 'All';
     let activeWorkType = 'photos';
     let activeWorkIndex = 0;
-    function showActiveWork() {
-      const item = work[activeWorkType][activeWorkIndex];
-      dialogMedia.innerHTML = activeWorkType === 'photos' ? `<img src="${item.src}" alt="${item.title}">` : `<video src="${item.src}" controls autoplay playsinline></video>`;
-      dialogCaption.textContent = `${item.label} — ${item.title}`;
+
+    function visibleWork(type) {
+      return type === 'photos' && selectedPhotoFilter !== 'All'
+        ? work.photos.filter((item) => item.category === selectedPhotoFilter)
+        : work[type];
     }
+
+    function renderWork(type = selectedWorkType) {
+      selectedWorkType = type;
+      const items = visibleWork(type);
+      grid.innerHTML = items.map((item, index) => {
+        const itemName = item.title || item.label;
+        const meta = `<span class="work-meta"><span>${item.label}</span>${item.title ? `<strong>${item.title}</strong>` : ''}</span>`;
+        return `<button class="work-item" type="button" data-type="${type}" data-index="${index}" aria-label="Open ${itemName}">${type === 'photos' ? `<img src="${item.src}" alt="${itemName}" loading="lazy">` : `<video src="${item.src}" muted playsinline preload="metadata" aria-hidden="true"></video><span class="work-play">▶</span>`}${meta}</button>`;
+      }).join('');
+    }
+
+    function showActiveWork() {
+      const item = visibleWork(activeWorkType)[activeWorkIndex];
+      const itemName = item.title || item.label;
+      dialogMedia.innerHTML = activeWorkType === 'photos' ? `<img src="${item.src}" alt="${itemName}">` : `<video src="${item.src}" controls autoplay playsinline></video>`;
+      dialogCaption.textContent = item.title ? `${item.label} — ${item.title}` : item.label;
+    }
+
     function openWork(type, index) {
       activeWorkType = type;
-      activeWorkIndex = index;
+      activeWorkIndex = Number(index);
       showActiveWork();
       dialog.showModal();
     }
+
     function navigateWork(direction) {
-      const items = work[activeWorkType];
+      const items = visibleWork(activeWorkType);
       activeWorkIndex = (activeWorkIndex + direction + items.length) % items.length;
       showActiveWork();
     }
+
     document.querySelectorAll('[data-work-tab]').forEach((tab) => tab.addEventListener('click', () => {
       document.querySelectorAll('[data-work-tab]').forEach((button) => button.setAttribute('aria-selected', button === tab));
+      filters.hidden = tab.dataset.workTab !== 'photos';
       renderWork(tab.dataset.workTab);
     }));
+
+    document.querySelectorAll('[data-work-filter]').forEach((filter) => filter.addEventListener('click', () => {
+      selectedPhotoFilter = filter.dataset.workFilter;
+      document.querySelectorAll('[data-work-filter]').forEach((button) => button.setAttribute('aria-pressed', button === filter));
+      renderWork('photos');
+    }));
+
     grid.addEventListener('click', (event) => {
       const item = event.target.closest('.work-item');
       if (item) openWork(item.dataset.type, item.dataset.index);
@@ -668,7 +710,7 @@
     document.querySelector('.work-close').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', (event) => { if (event.target === dialog) dialog.close(); });
     dialog.addEventListener('close', () => { dialogMedia.innerHTML = ''; });
-    renderWork('photos');
+    renderWork();
   </script>
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#062d41">
+  <meta name="description" content="Drift Haus Creative Studio creates photography, film, and brand stories from Tampa, Florida.">
+  <title>Drift Haus — Creative Studio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23062d41'/%3E%3Cpath d='M8 18c15 0 17-12 32-12M8 28c17 0 22-13 42-13M8 38c18 0 26-12 48-12M8 48c20 0 28-12 48-12M8 58c22 0 29-10 48-10' fill='none' stroke='%23f1eee6' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root { --ink:#062d41; --teal:#1b5a79; --paper:#f1eee6; --line:rgba(241,238,230,.29); --muted:#b8d0da; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--ink); color:var(--paper); font-family:Arial,Helvetica,sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid #a9d8eb; outline-offset:5px; }
+    .shell { width:min(100% - 72px, 1500px); margin:auto; }
+    .site-header { position:absolute; z-index:5; top:0; left:0; width:100%; background:linear-gradient(to bottom,rgba(3,31,48,.84),transparent); }
+    .header-inner { min-height:104px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .brand { display:flex; align-items:center; gap:15px; min-width:0; white-space:nowrap; }
+    .brand img { display:block; object-fit:contain; filter:invert(1); }
+    .brand-mark { height:44px; width:34px; }
+    .brand-wordmark { width:112px; height:auto; }
+    .nav { display:flex; align-items:center; gap:36px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; }
+    .nav a { padding:12px 0; transition:opacity .2s; }
+    .nav a:hover { opacity:.63; }
+    .nav .nav-contact { border:1px solid rgba(255,255,255,.62); padding:14px 19px; }
+    .hero { position:relative; min-height:min(820px,100svh); overflow:hidden; background:#062d41; display:grid; align-items:end; }
+    .hero-image { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center center; }
+    .hero-logo { position:absolute; z-index:2; top:49%; left:50%; transform:translate(-50%,-50%); width:min(45vw,620px); max-height:75%; object-fit:contain; filter:invert(1); }
+    .hero::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(to bottom,rgba(2,29,45,.16) 5%,transparent 31%,transparent 66%,rgba(2,28,42,.82) 100%); }
+    .hero-bottom { position:relative; z-index:1; max-width:1280px; margin:0 auto; align-self:end; padding:0 0 34px; display:flex; justify-content:space-between; align-items:end; gap:20px; }
+    .hero-bottom p, .hero-bottom a { margin:0; font-size:11px; letter-spacing:.22em; text-transform:uppercase; }
+    .hero-bottom a { border-bottom:1px solid rgba(255,255,255,.65); padding-bottom:7px; }
+    .intro { position:relative; overflow:hidden; background:var(--paper); color:var(--ink); padding:120px 0 128px; }
+    .intro::before { content:""; position:absolute; inset:0; background:url('assets/leaf-pattern.png') right center / 850px auto no-repeat; opacity:.7; -webkit-mask-image:linear-gradient(to right,transparent 18%,#000 74%); mask-image:linear-gradient(to right,transparent 18%,#000 74%); pointer-events:none; }
+    .intro .shell { position:relative; }
+    .eyebrow { margin:0 0 35px; font-size:12px; letter-spacing:.26em; text-transform:uppercase; font-weight:600; }
+    .intro-grid { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(250px,.6fr); gap:9vw; align-items:end; }
+    h1,h2,h3,p { margin-top:0; }
+    .intro h1 { max-width:900px; margin:0; font-family:Georgia,'Times New Roman',serif; font-size:clamp(48px,6.1vw,106px); line-height:1.04; letter-spacing:-.055em; font-weight:400; }
+    .intro-copy { font-size:19px; line-height:1.65; max-width:365px; margin:0 0 7px; }
+    .services { padding:110px 0 132px; background:var(--ink); }
+    .section-top { display:flex; justify-content:space-between; gap:30px; align-items:start; border-top:1px solid var(--line); padding-top:25px; }
+    .section-top .eyebrow { margin:0; }
+    .section-top p { max-width:340px; color:var(--muted); font-size:15px; line-height:1.65; }
+    .service-list { margin-top:92px; border-bottom:1px solid var(--line); }
+    .service { display:grid; grid-template-columns:80px 1fr 30%; align-items:baseline; gap:20px; border-top:1px solid var(--line); padding:35px 0 40px; }
+    .service span { font-family:Georgia,serif; font-size:18px; color:#99c4d6; }
+    .service h2 { margin:0; font-family:Georgia,serif; font-weight:400; font-size:clamp(38px,5.3vw,82px); line-height:1.05; letter-spacing:-.045em; }
+    .service p { margin:0; color:var(--muted); line-height:1.6; font-size:16px; }
+    .manifesto { background:#17465e; display:grid; grid-template-columns:1fr 1fr; min-height:540px; }
+    .manifesto-art { position:relative; min-height:420px; overflow:hidden; background:var(--paper); }
+    .manifesto-mark { position:absolute; inset:42px; width:calc(100% - 84px); height:calc(100% - 84px); object-fit:contain; object-position:center; }
+    .manifesto-text { padding:70px min(8vw,125px); display:flex; flex-direction:column; justify-content:center; }
+    .manifesto-text h2 { font-family:Georgia,serif; font-size:clamp(42px,4vw,68px); font-weight:400; line-height:1.1; letter-spacing:-.04em; max-width:620px; margin-bottom:28px; }
+    .manifesto-text p:not(.eyebrow) { color:#c9dce5; font-size:17px; line-height:1.7; max-width:470px; }
+    .contact { position:relative; overflow:hidden; background:#c9dde6; color:var(--ink); padding:116px 0 100px; }
+    .contact::before { content:""; position:absolute; inset:0; background:url('assets/leaf-pattern-navy.png') right center / min(58vw,880px) auto no-repeat; opacity:.8; -webkit-mask-image:linear-gradient(to right,transparent 43%,#000 78%); mask-image:linear-gradient(to right,transparent 43%,#000 78%); pointer-events:none; }
+    .contact .shell { position:relative; }
+    .contact h2 { font-family:Georgia,serif; font-weight:400; font-size:clamp(56px,8.4vw,140px); letter-spacing:-.065em; line-height:1; max-width:1160px; margin:0 0 55px; }
+    .contact-links { display:flex; flex-wrap:wrap; gap:18px; }
+    .button { display:inline-flex; min-height:54px; align-items:center; justify-content:center; border:1px solid var(--ink); padding:14px 24px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; transition:background .2s,color .2s; }
+    .button:hover { background:var(--ink); color:var(--paper); }
+    .button.primary { background:var(--ink); color:var(--paper); }
+    .button.primary:hover { background:var(--teal); }
+    footer { background:#c9dde6; color:var(--ink); }
+    .footer-inner { border-top:1px solid rgba(6,45,65,.24); padding:26px 0 34px; display:flex; justify-content:space-between; gap:20px; font-size:11px; letter-spacing:.16em; text-transform:uppercase; }
+    .footer-inner div { display:flex; gap:25px; }
+    @media (max-width:850px) {
+      .shell { width:min(100% - 40px,1500px); }
+      .header-inner { min-height:76px; }
+      .brand { gap:11px; }
+      .brand-mark { height:32px; width:25px; }
+      .brand-wordmark { width:98px; }
+      .nav { gap:17px; font-size:11px; letter-spacing:.09em; }
+      .nav a:first-child { display:none; }
+      .nav .nav-contact { padding:10px 12px; }
+      .hero { min-height:0; padding-top:76px; display:block; }
+      .hero-image { position:relative; display:block; height:auto; aspect-ratio:3/2; object-fit:contain; width:100%; }
+      .hero-logo { top:calc(76px + 33.333vw); width:56vw; max-height:none; }
+      .hero::after { display:none; }
+      .hero-bottom { padding:22px 0 26px; }
+      .intro { padding:75px 0 85px; }
+      .intro::before { background-size:700px auto; background-position:60% center; opacity:.4; }
+      .intro-grid { grid-template-columns:1fr; gap:38px; }
+      .intro-copy { max-width:560px; }
+      .services { padding:80px 0 95px; }
+      .service-list { margin-top:55px; }
+      .service { grid-template-columns:42px 1fr; }
+      .service p { grid-column:2; }
+      .manifesto { grid-template-columns:1fr; }
+      .manifesto-art { min-height:420px; }
+      .manifesto-text { padding:70px 7vw 82px; }
+      .contact { padding:85px 0; }
+      .contact::before { background-size:620px auto; background-position:65% center; opacity:.4; }
+    }
+    @media (max-width:540px) {
+      .shell { width:calc(100% - 34px); }
+      .brand-wordmark { width:88px; }
+      .nav { gap:0; }
+      .nav a:nth-child(2) { display:none; }
+      .hero-bottom { width:calc(100% - 60px); flex-direction:column; align-items:center; text-align:center; gap:16px; }
+      .hero-bottom p, .hero-bottom a { font-size:10px; letter-spacing:.12em; }
+      .intro h1 { font-size:clamp(47px,12vw,68px); }
+      .intro-copy { font-size:17px; }
+      .section-top { display:block; }
+      .section-top p { margin-top:18px; }
+      .service { grid-template-columns:30px 1fr; gap:13px; padding:27px 0 30px; }
+      .service h2 { font-size:39px; }
+      .manifesto-art { min-height:350px; }
+      .manifesto-text h2 { font-size:45px; }
+      .contact h2 { font-size:clamp(55px,15vw,80px); }
+      .contact-links { display:grid; }
+      .footer-inner { display:block; line-height:1.8; }
+      .footer-inner div { margin-top:12px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Drift Haus, back to top"><img class="brand-mark" src="assets/flow-mark.png" alt=""><img class="brand-wordmark" src="assets/drift-haus-wordmark.png" alt=""></a>
+      <nav class="nav" aria-label="Main navigation"><a href="#about">The studio</a><a href="#services">What we do</a><a class="nav-contact" href="#contact">Get in touch</a></nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero" aria-label="Drift Haus Creative Studio">
+      <img class="hero-image" src="assets/ocean-hero.jpg" alt="Blue ocean waves in motion" fetchpriority="high">
+      <img class="hero-logo" src="assets/drift-haus-logo.png" alt="Drift Haus Creative Studio — Tampa, Florida" fetchpriority="high">
+      <div class="shell hero-bottom"><p>Independent creative studio · Tampa, Florida</p><a href="#about">Explore the studio ↓</a></div>
+    </section>
+    <section class="intro" id="about">
+      <div class="shell">
+        <p class="eyebrow">A studio in motion / 01</p>
+        <div class="intro-grid"><h1>Made to be seen.<br>Made to be felt.</h1><p class="intro-copy">Drift Haus is a Tampa-based creative studio making photography, film, and visual stories for brands with a point of view.</p></div>
+      </div>
+    </section>
+    <section class="services" id="services">
+      <div class="shell">
+        <div class="section-top"><p class="eyebrow">What we do / 02</p><p>From a single image to a full brand campaign, we shape the idea and create the work that brings it to life.</p></div>
+        <div class="service-list">
+          <article class="service"><span>01</span><h2>Photography</h2><p>Campaigns, lifestyle, product, and editorial imagery.</p></article>
+          <article class="service"><span>02</span><h2>Film</h2><p>Brand films and social content built around a clear story.</p></article>
+          <article class="service"><span>03</span><h2>Creative direction</h2><p>Concept, visual language, and production from first thought to final frame.</p></article>
+        </div>
+      </div>
+    </section>
+    <section class="manifesto" aria-label="Our approach">
+      <div class="manifesto-art" aria-hidden="true"><img class="manifesto-mark" src="assets/flow-mark-blue-centered.png" alt=""></div>
+      <div class="manifesto-text"><p class="eyebrow">The way we see it / 03</p><h2>Good work starts with a feeling.</h2><p>We look for the moment that makes someone pause. Then we give it room to breathe, whether it lives in a photograph, a film, or an entire campaign.</p></div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="shell"><p class="eyebrow">Start a conversation / 04</p><h2>Have something<br>in mind?</h2><div class="contact-links"><a class="button primary" href="https://www.instagram.com/drifthausmedia/" target="_blank" rel="noopener noreferrer">Message us on Instagram ↗</a><a class="button" href="https://drifthausmedia.com" target="_blank" rel="noopener noreferrer">View our work ↗</a></div></div>
+    </section>
+  </main>
+  <footer><div class="shell footer-inner"><span>© <span id="year">2026</span> Drift Haus Creative Studio</span><div><span>Tampa / Florida</span><a href="https://www.instagram.com/drifthausmedia/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
